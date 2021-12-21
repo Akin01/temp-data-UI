@@ -20,7 +20,6 @@ const WinSwiper = () => {
       fetchData();
     }, []);
   
-  console.log(tempData);
   return (
     <div className='flex justify-center items-center'>
       <div className='w-1/2 p-6 flex flex-wrap'>
@@ -28,11 +27,9 @@ const WinSwiper = () => {
           // install Swiper modules
           spaceBetween={50}
           slidesPerView={1}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {tempData.map((d) => (
-            <SwiperSlide>
+            <SwiperSlide key={d.id}>
               <div className='bg-white h-96 p-6 flex justify-start rounded-2xl shadow-2xl'>
                 <TempData temp_obj={d.temp_obj} temp_env={d.temp_env} />
                 <div className='w-3/5 h-full flex flex-col justify-around items-center'>
